@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.github.JPDSousa</groupId>
+    <artifactId>rookit</artifactId>
+    <version>-SNAPSHOT</version>
+  </parent>
+  <artifactId>rookit-mongodb-test</artifactId>
+  <name>rookit-mongodb-test</name>
+  <url>http://maven.apache.org</url>
+  <properties>
+  </properties>
+  <dependencies>
+  	<dependency>
+  		<groupId>${rookit.group}</groupId>
+  		<artifactId>rookit-api</artifactId>
+  	</dependency>
+  </dependencies>
+  <dependencyManagement>
+  	<dependencies>
+  		<dependency>
+  			<groupId>${rookit.group}</groupId>
+  			<artifactId>rookit-api</artifactId>
+  			<version>${rookit.version}</version>
+  		</dependency>
+  	</dependencies>
+  </dependencyManagement>
+  <repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+</project>
