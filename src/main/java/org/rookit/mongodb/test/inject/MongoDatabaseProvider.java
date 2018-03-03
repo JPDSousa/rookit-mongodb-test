@@ -9,16 +9,25 @@ import com.mongodb.client.MongoDatabase;
 public class MongoDatabaseProvider implements Provider<MongoDatabase> {
 
 	private final MongoClient client;
+	private final ThreadLocal<MongoDatabase> database;
 	
 	@Inject
 	private MongoDatabaseProvider(final MongoClient client) {
 		this.client = client;
+		this.database = new ThreadLocal<MongoDatabase>() {
+
+			@Override
+			protected MongoDatabase initialValue() {
+				return MongoDatabaseProvider.this.client
+						.getDatabase(Thread.currentThread().getName());
+			}
+			
+		};
 	}
 
 	@Override
 	public MongoDatabase get() {
-		final String dbName = Thread.currentThread().getName();
-		return client.getDatabase(dbName);
+		return this.database.get();
 	}
 	
 }
